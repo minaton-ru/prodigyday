@@ -1,0 +1,27 @@
+{% load tags %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+    <title>{% block title %}ProdigyDay.ru{% endblock %}</title>
+</head>
+<body>
+{% block header %}
+<a href="{% url 'home' %}">Главная</a>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block menu %}
+<p>История по годам:</p>
+{% show_all_years %}
+{% endblock %}
+
+{% block footer %}
+    <p>
+      2021 &copy; Copyrights
+    </p>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}События в истории группы The Prodigy. День: {{ events_day }}, месяц: {{ events_month }} - {{ block.super }} {% endblock %}
+
+{% block content %}
+<p>События в этот день в разные годы. День: {{ events_day }} {{ events_month }}</p>
+{% if day_events_list %}
+    <ul>
+    {% for event in day_events_list %}
+        <li><a href="/{{ event.year }}/">{{ event.year }}</a> {{ event.title }}: {{ event.content }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Нет записей за такой день.</p>
+{% endif %}
+{% endblock %}

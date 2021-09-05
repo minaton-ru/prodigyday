@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}События в истории группы The Prodigy: {{ events_year }} год - {{ block.super }} {% endblock %}
+
+{% block content %}
+<p>{{ events_year }} год</p>
+{% if year_events_list %}
+    <ul>
+    {% for event in year_events_list %}
+        <li><a href="/{{ event.month }}/{{ event.day }}/">{{ event.day }} {{ event.get_month_display }}</a> {{ event.title }}: {{ event.content }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Нет записей за этот год.</p>
+{% endif %}
+{% endblock %}
