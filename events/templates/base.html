@@ -1,27 +1,73 @@
 {% load tags %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-    <title>{% block title %}ProdigyDay.ru{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"> 
+  <title>{% block title %}ProdigyDay.ru{% endblock %}</title>
 </head>
 <body>
-{% block header %}
-<a href="{% url 'home' %}">Главная</a>
-{% endblock %}
 
-{% block content %}
-{% endblock %}
+<header class="container">
+ <div class="row">
+   <div class="col header-text">
+    <p class="text-center fs-5">Prodigy Day — этот день в истории группы The Prodigy</p>
+   </div>
+ </div>
+ <div class="row black-photo">
+   <div class="col header-image">
+    <div class="position-relative"><img src="{% static 'img/back-black-1080.png' %}" class="img-fluid" alt="The Prodigy">
+     <div class="header-image-text position-absolute fs-1">Prodigy Day</div>
+    </div>
+   </div>
+ </div>
+ <div class="row header-menu">
+   <div class="col">
+    <nav class="nav justify-content-center">
+      <ul class="nav">
+	      <li class="nav-item">
+         <a class="nav-link" href="{% url 'home' %}">Главная</a>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link" href="{% url 'home' %}">О проекте</a>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link" href="{% url 'home' %}">Обратная связь</a>
+        </li>
+      </ul>
+   </div>
+ </div>
+</header>
 
-{% block menu %}
-<p>История по годам:</p>
-{% show_all_years %}
-{% endblock %}
+<div class="container content">
+ <div class="row">
+  <div class="col-9 content-main"> 
+   {% block content %}
+   {% endblock %}
+  </div>
+  <div class="col side-menu">
+   {% block menu %}
+   <p class="side-menu-p">История по годам:</p>
+   <nav class="nav flex-column">
+   {% show_all_years %}
+   </nav>
+   {% endblock %}
+  </div>
+ </div>
+</div>
 
-{% block footer %}
-    <p>
-      2021 &copy; Copyrights
-    </p>
-{% endblock %}
+<footer class="container">
+ <div class="row">
+   <div class="col">
+    <p class="text-center">Copyright &copy; 2005-2021 minaton</p>
+   </div>
+ </div>
+</footer>
+
 </body>
 </html>

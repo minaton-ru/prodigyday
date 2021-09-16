@@ -1,0 +1,86 @@
+@media (min-width: 1200px) {
+    .container {
+      width: 1080px;
+    }
+  }
+
+body {
+    background-color: #b6b9c0;
+}
+
+header, footer, .content {
+    background-color: #1f3540;
+}
+
+.header-text {
+    color: #cdcec2;
+    padding-top: 0.2em;
+}
+
+.black-photo {
+    background-color: black;
+}
+
+.header-image {
+    padding: 0;
+}
+
+.header-image-text {
+    top: 75%;
+    left: 1%;
+    color: white;
+    padding: 0;
+    font-family: 'Great Vibes', cursive;
+}
+
+.header-menu {
+    background-color: #0c2c45;
+}
+
+.header-menu a {
+    color: #fcf3ec;
+}
+
+.header-menu a:hover {
+    color: #c7ad98;
+    text-decoration: underline;
+}
+
+.content-main {
+    color: #fcf3ec;
+    padding-top: 1em;
+}
+
+.card-header a {
+    color: #fcf3ec;
+}
+
+.card-header a:hover {
+    color: #c7ad98;
+}
+
+.side-menu {
+    background-color: #74959a;
+}
+
+.side-menu-p {
+    padding-top: 1em;
+}
+
+.side-menu a {
+    color: black;
+}
+
+.side-menu a:hover { 
+	color: #857365;
+	text-decoration: underline;
+	}
+
+.side-menu-nav {
+    padding-top: 0;
+}
+
+footer {
+    color: #9aa9a3;
+    padding-top: 0.5em;
+}

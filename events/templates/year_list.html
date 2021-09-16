@@ -3,13 +3,24 @@
 {% block title %}События в истории группы The Prodigy: {{ events_year }} год - {{ block.super }} {% endblock %}
 
 {% block content %}
-<p>{{ events_year }} год</p>
+<p><b>{{ events_year }} год</b></p>
+<p>События в разные дни этого года в иcтории группы The Prodigy.</p>
 {% if year_events_list %}
-    <ul>
-    {% for event in year_events_list %}
-        <li><a href="/{{ event.month }}/{{ event.day }}/">{{ event.day }} {{ event.get_month_display }}</a> {{ event.title }}: {{ event.content }}</li>
-    {% endfor %}
-    </ul>
+ {% for event in year_events_list %}
+ <div class="card bg-transparent border-dark clearfix mb-5">
+    <div class="card-header border-dark"><a href="/{{ event.month }}/{{ event.day }}/">{{ event.day }} {{ event.get_month_display }}</a></div>
+    <div class="card-body">
+      <!-- responsive floated images -->
+      {% if event.image %}
+      <img src="{{ event.image.url }}" class="col-md-4 float-md-end mb-3 ms-md-3 img-fluid" alt="{{ event.title }}">
+      {% else %}
+      <p></p>
+      {% endif %}
+      <h2 class="card-title">{{ event.title }}</h2>
+      <p class="card-text">{{ event.content }}</p>
+    </div>
+  </div>
+  {% endfor %}
 {% else %}
     <p>Нет записей за этот год.</p>
 {% endif %}

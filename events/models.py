@@ -32,6 +32,7 @@ class Event(models.Model):
     day = models.PositiveSmallIntegerField()
     month = models.PositiveSmallIntegerField(choices=MONTH_CHOICES)
     year = models.PositiveSmallIntegerField()
+    image = models.ImageField(upload_to='pics', null=True, blank=True)
 
     def __str__(self):
 	    return self.title

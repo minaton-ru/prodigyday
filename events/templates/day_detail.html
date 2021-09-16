@@ -1,15 +1,26 @@
 {% extends "base.html" %}
 
-{% block title %}События в истории группы The Prodigy. День: {{ events_day }}, месяц: {{ events_month }} - {{ block.super }} {% endblock %}
+{% block title %}{{ events_day }} {{ events_month }}: События в истории группы The Prodigy - {{ block.super }} {% endblock %}
 
 {% block content %}
-<p>События в этот день в разные годы. День: {{ events_day }} {{ events_month }}</p>
+<p><b>День: {{ events_day }} {{ events_month }}</b></p>
+<p>События из истории группы The Prodigy в этот день в разные годы.</p>
 {% if day_events_list %}
-    <ul>
-    {% for event in day_events_list %}
-        <li><a href="/{{ event.year }}/">{{ event.year }}</a> {{ event.title }}: {{ event.content }}</li>
-    {% endfor %}
-    </ul>
+{% for event in day_events_list %}
+<div class="card bg-transparent border-dark clearfix mb-5">
+   <div class="card-header border-dark"><a href="/{{ event.year }}/">{{ event.year }}</a></div>
+   <div class="card-body">
+     <!-- responsive floated images -->
+     {% if event.image %}
+     <img src="{{ event.image.url }}" class="col-md-4 float-md-end mb-3 ms-md-3 img-fluid" alt="{{ event.title }}">
+     {% else %}
+     <p></p>
+     {% endif %}
+     <h2 class="card-title">{{ event.title }}</h2>
+     <p class="card-text">{{ event.content }}</p>
+   </div>
+ </div>
+ {% endfor %}
 {% else %}
     <p>Нет записей за такой день.</p>
 {% endif %}

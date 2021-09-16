@@ -3,16 +3,25 @@
 {% block title %}Этот день в истории группы The Prodigy - {{ block.super }} {% endblock %}
 
 {% block content %}
-<p>Сегодняшний день: {{ this_day }} {{ this_month }}</p>
+<p><b>Сегодняшний день: {{ this_day }} {{ this_month }}</b></p>
 {% if this_day_list %}
-<p>Какие события в истории группы произошли в этот день в разные годы истории:</p>
-    <ul>
-    {% for event in this_day_list %}
-        <li><a href="/{{ event.year }}/">{{ event.year }}</a> - {{ event.title }}</li>
-    {% endfor %}
-    </ul>
+<p>Какие события в истории группы The Prodigy и ее участников произошли в этот день в разные годы:</p>
+{% for event in this_day_list %}
+<div class="card bg-transparent border-dark clearfix">
+  <div class="card-header border-dark"><a href="/{{ event.year }}/">{{ event.year }}</a></div>
+  <div class="card-body">
+    <!-- responsive floated images -->
+    {% if event.image %}
+    <img src="{{ event.image.url }}" class="col-md-4 float-md-end mb-3 ms-md-3 img-fluid" alt="{{ event.title }}">
+    {% else %}
+    <p></p>
+    {% endif %}
+    <h2 class="card-title">{{ event.title }}</h2>
+    <p class="card-text">{{ event.content }}</p>
+  </div>
+</div>
+{% endfor %}
 {% else %}
     <p>В этот день в истории The Prodigy ничего не произошло.</p>
 {% endif %}
-
 {% endblock %}

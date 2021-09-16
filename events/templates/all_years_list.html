@@ -1,5 +1,3 @@
-<ul>
-    {% for year in all_years_list %}
-        <li><a href="/{{ year }}/">{{ year }}</a></li>
-    {% endfor %}
-</ul>
+{% for year in all_years_list %}
+ <a class="nav-link side-menu-nav" href="/{{ year }}/">{{ year }}</a>
+{% endfor %}
