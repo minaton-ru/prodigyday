@@ -3,6 +3,7 @@ from django.template import loader
 from django.http import HttpResponse
 from datetime import date # импортируем модуль для работы с датой
 from events.models import Event
+from django.views.generic import TemplateView
 
 todayDate = date.today() # берем сегодняшнюю дату глобально
 month_name_tuple = ('января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря') # глобальный кортеж с названиями месяцев
@@ -31,3 +32,9 @@ def day_detail(request, event_month, event_day): # для страницы вс�
     'events_day': event_day, # возвращаем в контекст день, который приняла функция, и название месяца
     'events_month': this_month_name }
     return HttpResponse(template.render(context))
+
+class AboutView(TemplateView):
+    template_name = "about.html"
+
+class ContactsView(TemplateView):
+    template_name = "contacts.html"

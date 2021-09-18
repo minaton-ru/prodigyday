@@ -51,11 +51,11 @@ header, footer, .content {
     padding-top: 1em;
 }
 
-.card-header a {
+.card-header a, .content-main a {
     color: #fcf3ec;
 }
 
-.card-header a:hover {
+.card-header a:hover, .content-main a:hover {
     color: #c7ad98;
 }
 

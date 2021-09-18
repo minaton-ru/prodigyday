@@ -34,10 +34,10 @@
          <a class="nav-link" href="{% url 'home' %}">Главная</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="{% url 'home' %}">О проекте</a>
+         <a class="nav-link" href="{% url 'about' %}">О проекте</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="{% url 'home' %}">Обратная связь</a>
+         <a class="nav-link" href="{% url 'contacts' %}">Обратная связь</a>
         </li>
       </ul>
    </div>
@@ -45,7 +45,7 @@
 </header>
 
 <div class="container content">
- <div class="row">
+ <div class="row ps-1">
   <div class="col-9 content-main"> 
    {% block content %}
    {% endblock %}
