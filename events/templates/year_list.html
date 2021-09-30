@@ -17,7 +17,7 @@
       <p></p>
       {% endif %}
       <h2 class="card-title">{{ event.title }}</h2>
-      <p class="card-text">{{ event.content }}</p>
+      <p class="card-text">{{ event.content|safe }}</p>
     </div>
   </div>
   {% endfor %}

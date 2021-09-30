@@ -4,9 +4,8 @@
 
 {% block content %}
 <p><b>Сегодняшний день: {{ this_day }} {{ this_month }}</b></p>
-{% if this_day_list %}
-<p>Какие события в истории группы The Prodigy и ее участников произошли в этот день в разные годы:</p>
 {% for event in this_day_list %}
+<p>Какие события в истории группы The Prodigy и ее участников произошли в этот день в разные годы:</p>
 <div class="card bg-transparent border-dark clearfix">
   <div class="card-header border-dark"><a href="/{{ event.year }}/">{{ event.year }}</a></div>
   <div class="card-body">
@@ -17,11 +16,10 @@
     <p></p>
     {% endif %}
     <h2 class="card-title">{{ event.title }}</h2>
-    <p class="card-text">{{ event.content }}</p>
+    <p class="card-text">{{ event.content|safe }}</p>
   </div>
 </div>
+{% empty %}
+  <p>В этот день в истории The Prodigy ничего не произошло.</p>
 {% endfor %}
-{% else %}
-    <p>В этот день в истории The Prodigy ничего не произошло.</p>
-{% endif %}
 {% endblock %}
