@@ -5,10 +5,10 @@ from datetime import date # импортируем модуль для рабо�
 from events.models import Event
 from django.views.generic import TemplateView
 
-todayDate = date.today() # берем сегодняшнюю дату глобально
 month_name_tuple = ('января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря') # глобальный кортеж с названиями месяцев
 
 def index(request): # главная страница
+    todayDate = date.today() # берем сегодняшнюю дату
     template = loader.get_template('index.html')
     this_month_name = month_name_tuple[todayDate.month - 1] # берем название текущего месяца из кортежа
     this_day_list = Event.objects.filter(day=todayDate.day, month=todayDate.month) # фильтруем события по текущему дню и месяцу формат int
