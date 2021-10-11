@@ -94,7 +94,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-Activate.ps1
+Scripts
+pyvenv.cfg
 
 # Spyder project settings
 .spyderproject
