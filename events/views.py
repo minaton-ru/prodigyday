@@ -7,6 +7,13 @@ from django.views.generic import TemplateView
 
 month_name_tuple = ('января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря') # глобальный кортеж с названиями месяцев
 
+def how_many_years(years_count):
+    lastDigit = years_count % 10
+    if lastDigit in [1, 2, 3, 4] and (years_count < 9 or years_count > 20):
+        return f"{years_count} года назад"
+    else:
+        return f"{years_count} лет назад"
+
 def index(request): # главная страница
     todayDate = date.today() # берем сегодняшнюю дату
     template = loader.get_template('index.html')
@@ -18,9 +25,12 @@ def index(request): # главная страница
     return HttpResponse(template.render(context))
 
 def year_list(request, events_year): # для страницы всех событий одного года
+    todayDate = date.today() # берем сегодняшнюю дату
     template = loader.get_template('year_list.html')
     year_events_list = Event.objects.filter(year=events_year) # фильтруем события по году, который принимает функция
+    years_count = todayDate.year - events_year
     context = { 'year_events_list': year_events_list,
+    'how_many_years': how_many_years(years_count),
     'events_year': events_year} # возвращаем в контекст год, который приняла функция
     return HttpResponse(template.render(context))
 

@@ -3,7 +3,7 @@
 {% block title %}События в истории группы The Prodigy: {{ events_year }} год - {{ block.super }} {% endblock %}
 
 {% block content %}
-<p><b>{{ events_year }} год</b></p>
+<p><b>{{ events_year }} год</b> ({{ how_many_years }})</p>
 <p>События в разные дни этого года в иcтории группы The Prodigy.</p>
 {% if year_events_list %}
  {% for event in year_events_list %}
