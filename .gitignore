@@ -96,7 +96,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-Scripts
+Scripts/
 pyvenv.cfg
 id_rsa.pub
 id_rsa.pub.pub
