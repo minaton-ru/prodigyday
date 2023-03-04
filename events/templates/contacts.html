@@ -3,11 +3,5 @@
 {% block title %}Контакты - {{ block.super }} {% endblock %}
 
 {% block content %}
-<h2>Обратная связь по проекту ProdigyDay.ru</h2>
-<p>Возможно на этом сайте собраны не все важные факты из истории группы The Prodigy или встречаются ошибки.</p>
-<p>Очень просим вас, присылайте, пожалуйста, ваши комментарии, замечания и информацию о том, что еще можно добавить:</p>
-<ul>
-    <li>email <a href="mailto:minaton@yandex.ru">minaton@yandex.ru</a></li>
-    <li>телеграм @minaton_ru</li>
-</ul>
+{{ page_text|safe }}
 {% endblock %}

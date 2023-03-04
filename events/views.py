@@ -2,8 +2,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 from datetime import date # импортируем модуль для работы с датой
-from events.models import Event
-from django.views.generic import TemplateView
+from events.models import Event, TextPage
 
 month_name_tuple = ('января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря') # глобальный кортеж с названиями месяцев
 
@@ -43,8 +42,17 @@ def day_detail(request, event_month, event_day): # для страницы вс�
     'events_month': this_month_name }
     return HttpResponse(template.render(context))
 
-class AboutView(TemplateView):
-    template_name = "about.html"
+def about_page(request): # Берем текст для страницы about
+    template = loader.get_template('about.html')
+    page = TextPage.objects.get(page='about')
+    page_text = page.text
+    context = { 'page_text': page_text }
+    return HttpResponse(template.render(context))
 
-class ContactsView(TemplateView):
-    template_name = "contacts.html"
+def contacts_page(request): # Берем текст для страницы contacts
+    template = loader.get_template('contacts.html')
+    page = TextPage.objects.get(page='contacts')
+    page_text = page.text
+    context = { 'page_text': page_text }
+    return HttpResponse(template.render(context))
+

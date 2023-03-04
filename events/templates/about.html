@@ -3,18 +3,5 @@
 {% block title %}О проекте - {{ block.super }} {% endblock %}
 
 {% block content %}
-<h2>О проекте ProdigyDay.ru</h2>
-<p>Этот сайт посвящен известной электронной группе The Prodigy. Но здесь вы не сможете скачать mp3 композиции или клипы, прочитать дискографию группы или статьи и интервью из журналов, здесь нет подробных биографий участников коллектива.</p>
-<p>Основная цель данного проекта - показать историю группы The Prodigy в разрезе событий, которые случились в определенный день. Попробуйте проникнуться атмосферой, представить, что чувствовали участники много лет назад в этот день, когда, например, готовились к концерту или видели свои треки на первых местах чартов.</p>
-<p>Основными источниками информации для проекта Prodigy Day послужили:
-<ul>
-    <li><a href="http://theprodigy.ru/" target="_blank">TheProdigy.ru</a></li>
-    <li><a href="http://www.inflicted.de/projects/singles/index.php" target="_blank">Prodigy Singles</a></li>
-    <li><a href="http://nekosite.co.uk/" target="_blank">Prodigy NekoSite</a></li>
-    <li><a href="http://www.brainkiller.it/" target="_blank">BrainKiller</a></li>
-    <li><a href="http://www.theprodigy.nl/" target="_blank">TheProdigy.nl</a></li>
-    <li><a href="https://t.me/TheProdigyChat" target="_blank">t.me/TheProdigyChat</a></li>
-</ul>
-<p>А также много материала было взято из печатных изданий (книг, газет, журналов), в том числе из книги Сида Тернера &laquo;Prodigy: история великой группы&raquo;.</p>
-<p>Если у вас есть материалы, связанные с каким-то событием в жизни группы <strong>The Prodigy</strong>, пожалуйста, <a href="{% url 'contacts' %}">присылайте</a>, мы их проверим и обязательно опубликуем!</p>
+{{ page_text|safe }}
 {% endblock %}

@@ -36,3 +36,10 @@ class Event(models.Model):
 
     def __str__(self):
 	    return self.title
+
+class TextPage(models.Model): # Для хранения контента текстовых страниц в базе данных
+    page = models.CharField(max_length=100)
+    text = models.TextField()
+    
+    def __str__(self):
+	    return self.page
