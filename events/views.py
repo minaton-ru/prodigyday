@@ -8,7 +8,9 @@ month_name_tuple = ('января', 'февраля', 'марта', 'апрел�
 
 def how_many_years(years_count):
     lastDigit = years_count % 10
-    if lastDigit in [1, 2, 3, 4] and (years_count < 9 or years_count > 20):
+    if lastDigit == 1:
+        return f"{years_count} год назад"
+    elif lastDigit in [2, 3, 4] and (years_count < 9 or years_count > 20):
         return f"{years_count} года назад"
     else:
         return f"{years_count} лет назад"
