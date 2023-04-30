@@ -1,0 +1,5 @@
+{% for page in all_text_pages_list %}
+ <li class="nav-item">
+    <a class="nav-link" href="/{{ page.page }}/">{{ page.title }}</a>
+ </li>
+{% endfor %}

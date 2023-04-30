@@ -44,17 +44,10 @@ def day_detail(request, event_month, event_day): # для страницы вс�
     'events_month': this_month_name }
     return HttpResponse(template.render(context))
 
-def about_page(request): # Берем текст для страницы about
-    template = loader.get_template('about.html')
-    page = TextPage.objects.get(page='about')
+def text_page(request, page): # Статичные текстовые страницы
+    template = loader.get_template('text_page.html')
+    page = TextPage.objects.get(page=page)
     page_text = page.text
-    context = { 'page_text': page_text }
+    page_title = page.title
+    context = { 'page_text': page_text, 'page_title': page_title }
     return HttpResponse(template.render(context))
-
-def contacts_page(request): # Берем текст для страницы contacts
-    template = loader.get_template('contacts.html')
-    page = TextPage.objects.get(page='contacts')
-    page_text = page.text
-    context = { 'page_text': page_text }
-    return HttpResponse(template.render(context))
-

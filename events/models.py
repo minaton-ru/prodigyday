@@ -39,6 +39,7 @@ class Event(models.Model):
 
 class TextPage(models.Model): # Для хранения контента текстовых страниц в базе данных
     page = models.CharField(max_length=100)
+    title = models.CharField(max_length=255)
     text = models.TextField()
     
     def __str__(self):

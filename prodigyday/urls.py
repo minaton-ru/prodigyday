@@ -9,6 +9,5 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('<int:events_year>/', views.year_list),
     path('<int:event_month>/<int:event_day>/', views.day_detail),
-    path('about/', views.about_page, name='about'),
-    path('contacts/', views.contacts_page, name='contacts'),
+    path('<page>/', views.text_page),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
