@@ -10,7 +10,7 @@ register = template.Library()
 
 @register.inclusion_tag('all_years_list.html')
 def show_all_years(): # создаем кастомный тег для списка всех годов, чтобы использовать в html-шаблонах
-    all_years_list = Event.objects.values_list('year', flat=True).distinct() # берем значения поля year, возвращаем список значений, а не кортежей, убираем дубли
+    all_years_list = set(Event.objects.values_list('year', flat=True)) # берем значения поля year, возвращаем список значений, а не кортежей, множество убирает дубли
     return { 'all_years_list': sorted(all_years_list) }
 
 @register.inclusion_tag('text_pages_list.html')

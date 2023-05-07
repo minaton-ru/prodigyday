@@ -33,7 +33,10 @@ class Event(models.Model):
     month = models.PositiveSmallIntegerField(choices=MONTH_CHOICES)
     year = models.PositiveSmallIntegerField()
     image = models.ImageField(upload_to='pics', null=True, blank=True)
-
+    
+    class Meta:
+          ordering = ['year', 'month', 'day'] # сортировка по умолчанию по году, месяцу, дню
+    
     def __str__(self):
 	    return self.title
 
