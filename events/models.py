@@ -35,7 +35,7 @@ class Event(models.Model):
     image = models.ImageField(upload_to='pics', null=True, blank=True)
     
     class Meta:
-          ordering = ['year', 'month', 'day'] # сортировка по умолчанию по году, месяцу, дню
+          ordering = ['year', 'month', 'day'] # сортировка в модели по умолчанию по году, месяцу, дню
     
     def __str__(self):
 	    return self.title
