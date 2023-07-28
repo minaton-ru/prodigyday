@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Event(models.Model):
     JANUARY = 1
     FEBRUARY = 2
@@ -33,17 +34,20 @@ class Event(models.Model):
     month = models.PositiveSmallIntegerField(choices=MONTH_CHOICES)
     year = models.PositiveSmallIntegerField()
     image = models.ImageField(upload_to='pics', null=True, blank=True)
-    
-    class Meta:
-          ordering = ['year', 'month', 'day'] # сортировка в модели по умолчанию по году, месяцу, дню
-    
-    def __str__(self):
-	    return self.title
 
-class TextPage(models.Model): # Для хранения контента текстовых страниц в базе данных
+    class Meta:
+        # сортировка в модели по умолчанию по году, месяцу, дню
+        ordering = ['year', 'month', 'day']
+
+    def __str__(self):
+        return self.title
+
+
+# Для хранения контента текстовых страниц в базе данных
+class TextPage(models.Model):
     page = models.CharField(max_length=100)
     title = models.CharField(max_length=255)
     text = models.TextField()
-    
+
     def __str__(self):
-	    return self.page
+        return self.page
