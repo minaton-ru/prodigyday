@@ -1,5 +1,5 @@
 {% for page in all_text_pages_list %}
  <li class="nav-item">
-    <a class="nav-link" href="/{{ page.page }}/">{{ page.title }}</a>
+    <a class="nav-link" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
  </li>
 {% endfor %}

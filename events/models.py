@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Event(models.Model):
@@ -45,9 +46,15 @@ class Event(models.Model):
 
 # Для хранения контента текстовых страниц в базе данных
 class TextPage(models.Model):
-    page = models.CharField(max_length=100)
+    slug = models.SlugField(null=True, blank=True)
     title = models.CharField(max_length=255)
     text = models.TextField()
 
+    class Meta:
+        ordering = ['slug']
+
     def __str__(self):
-        return self.page
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("text_page", kwargs={"slug": self.slug})

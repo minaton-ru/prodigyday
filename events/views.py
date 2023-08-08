@@ -70,10 +70,10 @@ def day_detail(request, event_month, event_day):
     return HttpResponse(template.render(context))
 
 
-def text_page(request, page):
+def text_page(request, slug):
     '''Статичные текстовые страницы'''
     template = loader.get_template('text_page.html')
-    page = TextPage.objects.get(page=page)
+    page = TextPage.objects.get(slug=slug)
     page_text = page.text
     page_title = page.title
     context = {'page_text': page_text, 'page_title': page_title}
