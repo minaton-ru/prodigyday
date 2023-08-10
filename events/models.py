@@ -43,6 +43,10 @@ class Event(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("day_detail", kwargs={"event_month": self.month,
+                                             "event_day": self.day})
+
 
 # Для хранения контента текстовых страниц в базе данных
 class TextPage(models.Model):

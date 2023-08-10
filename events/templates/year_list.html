@@ -8,7 +8,7 @@
 {% if year_events_list %}
  {% for event in year_events_list %}
  <div class="card bg-transparent border-dark clearfix mb-5">
-    <div class="card-header border-dark"><a href="/{{ event.month }}/{{ event.day }}/">{{ event.day }} {{ event.get_month_display }}</a></div>
+    <div class="card-header border-dark"><a href="{{ event.get_absolute_url }}">{{ event.day }} {{ event.get_month_display }}</a></div>
     <div class="card-body">
       <!-- responsive floated images -->
       {% if event.image %}
