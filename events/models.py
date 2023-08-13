@@ -29,8 +29,8 @@ class Event(models.Model):
         (NOVEMBER, 'ноября'),
         (DECEMBER, 'декабря'),
     ]
-    title = models.CharField(max_length=255)
-    content = models.TextField()
+    title = models.CharField(max_length=100)
+    content = models.TextField(max_length=1000)
     day = models.PositiveSmallIntegerField()
     month = models.PositiveSmallIntegerField(choices=MONTH_CHOICES)
     year = models.PositiveSmallIntegerField()

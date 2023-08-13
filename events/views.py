@@ -25,7 +25,7 @@ def how_many_years(years_count):
 
 
 def index(request):
-    '''Главная страница'''
+    '''Главная страница.'''
     # Берем сегодняшнюю дату
     todayDate = date.today()
     template = loader.get_template('index.html')
@@ -41,7 +41,7 @@ def index(request):
 
 
 def year_list(request, events_year):
-    '''Для страницы всех событий одного года'''
+    '''Для страницы всех событий одного года.'''
     # Берем сегодняшнюю дату
     todayDate = date.today()
     template = loader.get_template('year_list.html')
@@ -56,7 +56,7 @@ def year_list(request, events_year):
 
 
 def day_detail(request, event_month, event_day):
-    '''Для страницы всех событий одного дня'''
+    '''Для страницы всех событий одного дня.'''
     template = loader.get_template('day_detail.html')
     # Берем название нужного месяца из кортежа
     this_month_name = month_name_tuple[event_month - 1]
@@ -71,7 +71,7 @@ def day_detail(request, event_month, event_day):
 
 
 def text_page(request, slug):
-    '''Статичные текстовые страницы'''
+    '''Статичные текстовые страницы.'''
     template = loader.get_template('text_page.html')
     page = TextPage.objects.get(slug=slug)
     page_text = page.text
