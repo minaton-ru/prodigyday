@@ -45,7 +45,7 @@ class TextPageModelTest(TestCase):
     def setUpTestData(cls):
         TextPage.objects.create(slug='newpage',
                                 title='New text page',
-                                text='This new text page was created for test.')
+                                text='This text page was created for test.')
 
     def test_text_page_title_max_length(self):
         """The maximun length of the title field is 100."""
