@@ -50,7 +50,7 @@ class Event(models.Model):
 
 # Для хранения контента текстовых страниц в базе данных
 class TextPage(models.Model):
-    slug = models.SlugField(null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True, unique=True)
     title = models.CharField(max_length=100)
     text = models.TextField(max_length=2000)
 

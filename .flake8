@@ -4,5 +4,6 @@ exclude =
     __pycache__,
     migrations,
     env,
+    venv,
     static,
     media
